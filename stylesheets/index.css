@@ -2,3 +2,15 @@ html {
   box-sizing: border-box;
   font-size: 100%;
 }
+
+body {
+  background-image:   url('../images/lc_berry.png'),
+  url('../images/lc_flowers.png'),
+  url('../images/lc_peony.png'),
+  url('../images/lc_grape.png'), url('../images/lc_avocado.png'),
+  url('../images/lc_p.png'),
+  url('../images/lc_tang.png');
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
