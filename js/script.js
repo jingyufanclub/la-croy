@@ -17,7 +17,7 @@ window.onload = function() {
     return array;
   }
 
-  let numberOfItems =  Math.floor(Math.random() * (images.length - 3 + 1)) + 3;
+  let numberOfItems =  Math.floor(Math.random() * (images.length - 4 + 1)) + 4;
 
   let selectedImages = shuffle(images).slice(0, numberOfItems);
 
