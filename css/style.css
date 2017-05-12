@@ -5,7 +5,7 @@ html {
 
 body {
   background: #fff4f4;
-  background-image:
+  /*background-image:
   url('../images/berry.png'),
   url('../images/flowers.png'),
   url('../images/peony.png'),
@@ -13,7 +13,7 @@ body {
   url('../images/avocado.png'),
   url('../images/pomelo.png'),
   url('../images/cuke.png'),
-  url('../images/tangerine.png');
+  url('../images/tangerine.png');*/
   padding: 0;
   margin: 0;
   height: 100%;
