@@ -1,35 +1,31 @@
 window.onload = function() {
 
-  const bgImages = ['avocado', 'berry', 'cuke', 'flowers', 'grapefruit', 'peony', 'plain', 'pomelo', 'tangerine']
+  const images = ['avocado', 'berry', 'cuke', 'flowers', 'grapefruit', 'peony', 'plain', 'pomelo', 'tangerine']
 
-  function randomize(array) {
-    // random int between two values, inclusive, i.e. minimum 3, maximum number of items in array: Math.floor(Math.random() * (max - min + 1)) + min
-    let length = Math.floor(Math.random() * (array.length - 3 + 1)) + 3;
-    console.log(length);
+  const colors = ['#fff4f4','#ffffff','#d4fc79','#c2e9fb','#cfd9df','#d9ded8','#96fbc4']
 
-    let randomBgImages = [];
+  // Fisher-Yates shuffle
 
-    // iterate randomly selected number of times and each time randomly select an item to remove by splicing and put that item into an array
+  function shuffle(array) {
+    let length = array.length, temp, i;
     while (length) {
-      imageName = array.splice(Math.floor(Math.random() * array.length), 1);
-      console.log('url("images/' + imageName.toString() + '.png")');
-      randomBgImages.push('url("images/' + imageName.toString() + '.png")');
-      length--
+      i = Math.floor(Math.random() * length--);
+      temp = array[length];
+      array[length] = array[i];
+      array[i] = temp;
     }
-    console.log(randomBgImages.toString());
-    return randomBgImages.toString();
+    console.log(array);
+    return array;
   }
-  document.body.style.backgroundImage = randomize(bgImages);
-}
 
-/* try implement with Fisher-Yates shuffle algorithm for randomness
-function shuffle(array) {
-  var m = array.length, t, i;
-  while (m) {
-    i = Math.floor(Math.random() * m--);
-    t = array[m];
-    array[m] = array[i];
-    array[i] = t;
-  }
+  let numberOfItems =  Math.floor(Math.random() * (images.length - 3 + 1)) + 3;
+
+  let selectedImages = shuffle(images).slice(0, numberOfItems);
+
+  let imageUrls = selectedImages.map(img => "url('images/" + img.toString() + ".png')").toString();
+
+  let bgColor = shuffle(colors).pop()
+
+  document.body.style.backgroundColor = bgColor;
+  document.body.style.backgroundImage = imageUrls;
 }
-*/
