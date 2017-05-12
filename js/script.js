@@ -11,6 +11,7 @@ window.onload = function() {
     console.log('url("images/' + image.toString() + '.png")')
     randomBgImages.push('url("images/' + image.toString() + '.png")')
     }
+    console.log(randomBgImages.toString())
     return randomBgImages.toString()
   }
   document.body.style.backgroundImage = randomize(bgImages);
