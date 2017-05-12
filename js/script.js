@@ -7,14 +7,13 @@ window.onload = function() {
   // Fisher-Yates shuffle
 
   function shuffle(array) {
-    let length = array.length, temp, i;
-    while (length) {
-      i = Math.floor(Math.random() * length--);
-      temp = array[length];
-      array[length] = array[i];
-      array[i] = temp;
+    let currentIndex = array.length, temp, randomIndex;
+    while (currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex--);
+      temp = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temp;
     }
-    console.log(array);
     return array;
   }
 
@@ -24,7 +23,7 @@ window.onload = function() {
 
   let imageUrls = selectedImages.map(img => "url('images/" + img.toString() + ".png')").toString();
 
-  let bgColor = shuffle(colors).pop()
+  let bgColor = shuffle(colors).pop();
 
   document.body.style.backgroundColor = bgColor;
   document.body.style.backgroundImage = imageUrls;
