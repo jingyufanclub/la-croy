@@ -46,18 +46,21 @@ window.onload = function() {
   }
 
   function draw() {
-    let numberOfItems =  Math.floor(Math.random() * (images.length - 4 + 1)) + 4;
-    let selectedImages = shuffle(images).slice(0, numberOfItems);
-    let imageUrls = selectedImages.map(img => "images/" + img.toString() + ".png");
-    let bgColor = shuffle(colors)[0];
+    let numberOfItems =  Math.floor(Math.random() * (images.length - 4 + 1)) + 4,
+        selectedImages = shuffle(images).slice(0, numberOfItems),
+        imageUrls = selectedImages.map(img => "images/" + img.toString() + ".png"),
+        bgColor = shuffle(colors)[0];
+
     ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < imageUrls.length; i++) {
       let img = new Image();
       img.src = imageUrls[i];
+
       img.onload = function() {
-        let pattern = ctx.createPattern(img, 'repeat');
+        let pattern = ctx.createPattern(this, 'repeat');
+        console.log(this)
         ctx.fillStyle = pattern;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
@@ -71,8 +74,24 @@ window.onload = function() {
   function download(link, filename) {
     link.href = canvas.toDataURL();
     link.download = filename;
-}
+  }
+
   downloadLink.addEventListener('click', function() {
     download(this, 'livelacroix.png')
     }, false)
+  //
+  // function drawPattern(img) {
+  //   let tempCanvas = document.createElement('canvas'),
+  //       tCtx = tempCanvas.getContext('2d'),
+  //       width = img.width,
+  //       height = img.height;
+  //
+  //    tempCanvas.width = width;
+  //    tempCanvas.height = height;
+  //    tCtx.drawImage(img, 0, 0, width*0.5, height*0.5, 0, 0, width, height);
+  //
+  //    ctx.fillStyle = ctx.createPattern(tempCanvas, 'repeat');
+  //    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // }
+
 }
