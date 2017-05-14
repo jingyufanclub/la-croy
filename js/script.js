@@ -5,8 +5,9 @@ window.onload = function() {
   const colors = ['#fff4f4','#ffffff','#ff0000','#d4fc79','#c2e9fb','#cfd9df','#d9ded8','#96fbc4']
 
   const canvas = document.querySelector('canvas');
-  let ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d');
   const scaleFactor = backingScale(ctx);
+  ctx.scale(scaleFactor,scaleFactor);
   const newLink = document.querySelector('#new-link')
   const downloadLink = document.querySelector('#download-link')
 
@@ -41,7 +42,7 @@ window.onload = function() {
       canvas.height = canvasHeight * scaleFactor;
       canvas.style.width = canvasWidth + 'px';
       canvas.style.height = canvasHeight + 'px';
-      ctx.scale(scaleFactor,scaleFactor);
+
       draw();
     } else {
       canvas.width = window.innerWidth;
