@@ -6,6 +6,7 @@ window.onload = function() {
 
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');
+  const scaleFactor = backingScale(ctx);
   const newLink = document.querySelector('#new-link')
   const downloadLink = document.querySelector('#download-link')
 
@@ -22,11 +23,26 @@ window.onload = function() {
     };
   };
 
+  function backingScale(context) {
+    if ('devicePixelRatio' in window) {
+      if (window.devicePixelRatio > 1) {
+          return window.devicePixelRatio;
+      }
+    }
+  return 1;
+}
+console.log(scaleFactor)
   const resizeCanvas = debounce(function() {
+    if (scaleFactor > 1) {
+      canvas.width = canvas.width * scaleFactor;
+      canvas.height = canvas.height * scaleFactor;
+      ctx = canvas.getContext('2d');
+      draw();
+    } else {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     draw();
-  }, 66);
+  }}, 66);
 
   resizeCanvas();
 
@@ -56,14 +72,12 @@ window.onload = function() {
 
     for (let i = 0; i < imageUrls.length; i++) {
       let img = new Image();
-      img.src = imageUrls[i];
-
       img.onload = function() {
         let pattern = ctx.createPattern(this, 'repeat');
-        console.log(this)
         ctx.fillStyle = pattern;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
+      img.src = imageUrls[i];
     }
   }
 
@@ -79,19 +93,4 @@ window.onload = function() {
   downloadLink.addEventListener('click', function() {
     download(this, 'livelacroix.png')
     }, false)
-  //
-  // function drawPattern(img) {
-  //   let tempCanvas = document.createElement('canvas'),
-  //       tCtx = tempCanvas.getContext('2d'),
-  //       width = img.width,
-  //       height = img.height;
-  //
-  //    tempCanvas.width = width;
-  //    tempCanvas.height = height;
-  //    tCtx.drawImage(img, 0, 0, width*0.5, height*0.5, 0, 0, width, height);
-  //
-  //    ctx.fillStyle = ctx.createPattern(tempCanvas, 'repeat');
-  //    ctx.fillRect(0, 0, canvas.width, canvas.height);
-  // }
-
 }
