@@ -4,8 +4,10 @@ window.onload = function() {
 
   const colors = ['#fff4f4','#ffffff','#ff0000','#d4fc79','#c2e9fb','#cfd9df','#d9ded8','#96fbc4']
 
-  const canvas = document.querySelector("canvas");
-  const ctx = canvas.getContext("2d");
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext('2d');
+  const newButton = document.querySelector('#new-button')
+  const downloadButton = document.querySelector('#download-button')
 
   function debounce(func, wait, immediate) {
     let timeout;
@@ -60,4 +62,13 @@ window.onload = function() {
       }
     }
   }
+
+  newButton.addEventListener('click', function () {
+    window.location.reload()
+  })
+
+  downloadButton.addEventListener('click', function () {
+    canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
+  })
+
 }
