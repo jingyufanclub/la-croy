@@ -24,7 +24,7 @@ window.onload = function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     draw();
-  }, 100);
+  }, 66);
 
   resizeCanvas();
 
