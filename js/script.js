@@ -7,14 +7,26 @@ window.onload = function() {
   const canvas = document.querySelector("canvas");
   const ctx = canvas.getContext("2d");
 
-  window.addEventListener('resize', resizeCanvas);
+  function debounce(func, wait, immediate) {
+    let timeout;
+    return function() {
+        let context = this, args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        }, wait);
+        if (immediate && !timeout) func.apply(context, args);
+    };
+  };
 
-  function resizeCanvas() {
+  const resizeCanvas = debounce(function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     draw();
-  }
+  }, 250);
   resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
 
   // Fisher-Yates shuffle
   function shuffle(array) {
@@ -32,9 +44,7 @@ window.onload = function() {
     let numberOfItems =  Math.floor(Math.random() * (images.length - 4 + 1)) + 4;
     let selectedImages = shuffle(images).slice(0, numberOfItems);
     let imageUrls = selectedImages.map(img => "images/" + img.toString() + ".png");
-    console.log(imageUrls)
     let bgColor = shuffle(colors)[0];
-    console.log(bgColor)
     ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
