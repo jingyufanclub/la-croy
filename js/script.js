@@ -7,9 +7,18 @@ window.onload = function() {
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');
   const scaleFactor = backingScale(ctx);
-  ctx.scale(scaleFactor,scaleFactor);
+  ctx.scale(scaleFactor, scaleFactor);
   const newLink = document.querySelector('#new-link')
   const downloadLink = document.querySelector('#download-link')
+
+  function backingScale(ctx) {
+    if ('devicePixelRatio' in window) {
+      if (window.devicePixelRatio > 1) {
+          return window.devicePixelRatio;
+      }
+    }
+    return 1;
+  }
 
   function debounce(func, wait, immediate) {
     let timeout;
@@ -24,29 +33,18 @@ window.onload = function() {
     };
   };
 
-  function backingScale(context) {
-    if ('devicePixelRatio' in window) {
-      if (window.devicePixelRatio > 1) {
-          return window.devicePixelRatio;
-      }
-    }
-  return 1;
-}
-
   const resizeCanvas = debounce(function() {
+    let w = window.innerWidth;
+    let h = window.innerHeight;
     if (scaleFactor > 1) {
-      let w = window.innerWidth;
-      let h = window.innerHeight;
-
       canvas.width = w * scaleFactor;
       canvas.height = h * scaleFactor;
       canvas.style.width = w + 'px';
       canvas.style.height = h + 'px';
-
       draw();
     } else {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
       draw();
     }
   }, 66);
