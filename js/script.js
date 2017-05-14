@@ -6,8 +6,8 @@ window.onload = function() {
 
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');
-  const newButton = document.querySelector('#new-button')
-  const downloadButton = document.querySelector('#download-button')
+  const newLink = document.querySelector('#new-link')
+  const downloadLink = document.querySelector('#download-link')
 
   function debounce(func, wait, immediate) {
     let timeout;
@@ -63,12 +63,15 @@ window.onload = function() {
     }
   }
 
-  newButton.addEventListener('click', function () {
+  newLink.addEventListener('click', function () {
     window.location.reload(true)
   })
 
-  downloadButton.addEventListener('click', function () {
-    canvas.toDataURL("image/png").replace("image/png", "data/octet-stream")
-  })
-
+  function download(link, filename) {
+    link.href = canvas.toDataURL();
+    link.download = filename;
+}
+  downloadLink.addEventListener('click', function() {
+    download(this, 'livelacroix.png');
+    }, false)
 }
