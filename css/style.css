@@ -31,7 +31,7 @@ a:link, a:hover, a:visited {
   display: inline-block;
   background: #fff4f4;
   color: #f00;
-  border: 2px solid white;
+  border: 2px solid #f00;
   border-radius: 4px;
   font-size: 80%;
   margin: 4px;
