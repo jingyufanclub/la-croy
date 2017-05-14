@@ -31,6 +31,7 @@ window.onload = function() {
   resizeCanvas();
 
   window.addEventListener('resize', resizeCanvas);
+  window.addEventListener('orientationchange', resizeCanvas);
 
   // Fisher-Yates shuffle
   function shuffle(array) {
