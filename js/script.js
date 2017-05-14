@@ -35,13 +35,13 @@ window.onload = function() {
 
   const resizeCanvas = debounce(function() {
     if (scaleFactor > 1) {
-      let canvasWidth = canvas.width;
-      let canvasHeight = canvas.height;
+      let w = window.innerWidth;
+      let h = window.innerHeight;
 
-      canvas.width = canvasWidth * scaleFactor;
-      canvas.height = canvasHeight * scaleFactor;
-      canvas.style.width = canvasWidth + 'px';
-      canvas.style.height = canvasHeight + 'px';
+      canvas.width = w * scaleFactor;
+      canvas.height = h * scaleFactor;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
 
       draw();
     } else {
