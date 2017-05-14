@@ -72,6 +72,6 @@ window.onload = function() {
     link.download = filename;
 }
   downloadLink.addEventListener('click', function() {
-    download(this, 'livelacroix.png');
+    download(this, 'livelacroix.png')
     }, false)
 }

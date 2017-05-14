@@ -1,6 +1,5 @@
 html {
   box-sizing: border-box;
-  font-size: 100%;
 }
 
 body {
@@ -8,6 +7,9 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  color: #222;
+  font-family: monospace;
+  font-size: 1em;
 }
 
 canvas {
@@ -19,4 +21,19 @@ menu {
   left: 0;
   position: absolute;
   display: block;
+}
+
+a:link, a:hover, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.button {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  opacity: 0.6;
+  background: violet;
+  border: 4px none violet;
+  border-radius: 4px;
 }
