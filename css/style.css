@@ -30,10 +30,12 @@ a:link, a:hover, a:visited {
 
 .button {
   display: inline-block;
-  margin: 5px;
-  padding: 10px;
-  opacity: 0.6;
-  background: violet;
-  border: 4px none violet;
+  margin: 4px;
+  padding: 8px;
+  opacity: 0.7;
+  background: #fff4f4;
+  color: #f00;
+  border: 2px solid white;
   border-radius: 4px;
+  font-size: 80%;
 }
