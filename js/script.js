@@ -39,8 +39,8 @@ window.onload = function() {
 
       canvas.width = canvasWidth * scaleFactor;
       canvas.height = canvasHeight * scaleFactor;
-      canvas.style.width = canvasWidth + 'px';
-      canvas.style.height = canvasHeight  + 'px';
+      canvas.style.width = `"${canvasWidth}px"`;
+      canvas.style.height = `"${canvasHeight}px"`;
       ctx.scale(scaleFactor,scaleFactor);
       draw();
     } else {
