@@ -33,6 +33,7 @@ a:link, a:hover, a:visited {
   color: #f00;
   border: 2px solid #f00;
   border-radius: 4px;
+  font-family: inherit;
   font-size: 80%;
   margin: 4px;
   padding: 8px;
