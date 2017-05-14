@@ -64,11 +64,11 @@ window.onload = function() {
   }
 
   newButton.addEventListener('click', function () {
-    window.location.reload()
+    window.location.reload(true)
   })
 
   downloadButton.addEventListener('click', function () {
-    canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
+    canvas.toDataURL("image/png").replace("image/png", "data/octet-stream")
   })
 
 }
