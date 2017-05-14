@@ -24,8 +24,10 @@ window.onload = function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     draw();
-  }, 250);
+  }, 100);
+
   resizeCanvas();
+
   window.addEventListener('resize', resizeCanvas);
 
   // Fisher-Yates shuffle
@@ -58,6 +60,4 @@ window.onload = function() {
       }
     }
   }
-  // let download = canvas.toDataURL('image/png');
-
 }
