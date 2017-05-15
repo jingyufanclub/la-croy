@@ -89,8 +89,7 @@ window.onload = function() {
 
   newButton.addEventListener('click', function () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    resizeCanvas();
-    // draw();
+    draw();
   })
 
   function download(link, filename) {
