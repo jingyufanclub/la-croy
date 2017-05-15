@@ -1,3 +1,3 @@
 ## Sounds Like Enjoy
 
-You can download the pattern as a wallpaper for you computer or phone. Enjoy LaCroix. 
+Generate La Croix-themed patterns and download as wallpaper for you computer or phone. Enjoy La Croix!
