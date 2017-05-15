@@ -8,8 +8,8 @@ window.onload = function() {
   const ctx = canvas.getContext('2d');
   const scaleFactor = backingScale(ctx);
   ctx.scale(scaleFactor, scaleFactor);
-  const newLink = document.querySelector('#new-link')
-  const downloadLink = document.querySelector('#download-link')
+  const newButton = document.querySelector('#new-button')
+  const downloadButton = document.querySelector('#download-button')
 
   function backingScale(ctx) {
     if ('devicePixelRatio' in window) {
@@ -86,8 +86,10 @@ window.onload = function() {
     }
   }
 
-  newLink.addEventListener('click', function () {
-    window.location.reload(true)
+  newButton.addEventListener('click', function () {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    resizeCanvas();
+    // window.location.reload(true)
   })
 
   function download(link, filename) {
@@ -95,7 +97,7 @@ window.onload = function() {
     link.download = filename;
   }
 
-  downloadLink.addEventListener('click', function() {
+  downloadButton.addEventListener('click', function() {
     download(this, 'livelacroix.png')
     }, false)
 }
