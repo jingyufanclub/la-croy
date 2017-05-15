@@ -7,9 +7,10 @@ window.onload = function() {
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');
   const scaleFactor = backingScale(ctx);
-  ctx.scale(scaleFactor, scaleFactor);
   const newButton = document.querySelector('#new-button');
   const downloadButton = document.querySelector('#download-button');
+
+  ctx.scale(scaleFactor, scaleFactor);
 
   function backingScale(ctx) {
     if ('devicePixelRatio' in window) {
@@ -88,7 +89,8 @@ window.onload = function() {
 
   newButton.addEventListener('click', function () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    draw();
+    resizeCanvas();
+    // draw();
   })
 
   function download(link, filename) {
