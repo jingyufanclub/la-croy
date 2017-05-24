@@ -27,6 +27,10 @@ a:link, a:hover, a:visited {
   text-decoration: none;
 }
 
+p {
+  font-size: 69%;
+}
+
 .button {
   display: inline-block;
   background: #fff4f4;
