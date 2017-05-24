@@ -29,6 +29,7 @@ a:link, a:hover, a:visited {
 
 p {
   font-size: 69%;
+  margin-left: 4px;
 }
 
 .button {
