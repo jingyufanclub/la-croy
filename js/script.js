@@ -1,6 +1,6 @@
 window.onload = function() {
 
-  const images = ['avocado', 'berry', 'cuke', 'flowers', 'grapefruit', 'peony', 'plain', 'pomelo', 'tangerine']
+  const images = ['avocado', 'berry', 'cuke', 'flowers', 'grapefruit', 'jing', 'peony', 'plain', 'pomelo', 'tangerine']
 
   const colors = ['#fff4f4','#ffffff','#ff0000','#d4fc79','#c2e9fb','#cfd9df','#d9ded8','#96fbc4']
 
@@ -68,7 +68,7 @@ window.onload = function() {
   }
 
   function draw() {
-    let numberOfItems =  Math.floor(Math.random() * (images.length - 4 + 1)) + 4,
+    let numberOfItems =  Math.floor(Math.random() * 5) + 4,
         selectedImages = shuffle(images).slice(0, numberOfItems),
         imageUrls = selectedImages.map(img => "images/" + img.toString() + ".png"),
         bgColor = shuffle(colors)[0];
