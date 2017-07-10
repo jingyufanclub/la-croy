@@ -68,7 +68,7 @@ window.onload = function() {
   }
 
   function draw() {
-    let numberOfItems =  Math.floor(Math.random() * 5) + 4,
+    let numberOfItems =  Math.floor(Math.random() * 6) + 4,
         selectedImages = shuffle(images).slice(0, numberOfItems),
         imageUrls = selectedImages.map(img => "images/" + img.toString() + ".png"),
         bgColor = shuffle(colors)[0];
