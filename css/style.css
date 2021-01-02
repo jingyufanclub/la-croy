@@ -23,7 +23,7 @@ menu {
 }
 
 a:link, a:hover, a:visited {
-  color: #f00;
+  color: darkturquoise;
   text-decoration: none;
 }
 
@@ -35,13 +35,13 @@ p {
 .button {
   display: inline-block;
   background: #fff4f4;
-  color: #f00;
+  color: darkturquoise;
   cursor: pointer;
-  border: 2px solid #f00;
+  border: 2px solid  darkturquoise;
   border-radius: 4px;
   font-family: inherit;
   font-size: 80%;
   margin: 4px;
   padding: 8px;
-  opacity: 0.6;
+  opacity: 0.8;
 }
