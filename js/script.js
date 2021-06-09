@@ -1,4 +1,5 @@
 window.onload = function() {
+  document.getElementById("year").innerHTML = new Date().getFullYear()
 
   const images = ['avocado', 'berry', 'cuke', 'flowers', 'grapefruit', 'jing', 'peony', 'plain', 'pomelo', 'tangerine']
 
